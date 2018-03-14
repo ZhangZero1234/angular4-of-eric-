@@ -1,0 +1,20 @@
+/**
+ *@name: functions
+ *@description: Here's the right place to write the @mixins.
+ */
+
+
+// Global functions 
+
+@mixin set-footer($position, $bottom, $left, $width) {
+    position: $position;
+    bottom: $bottom;
+    left: $left;
+    width: $width;
+
+}
+
+
+//floatings OMG, OMG, OMG!!!
+@mixin set-float-left($float: left){ float: $float }
+@mixin set-float-right($float: right){ float: $float }

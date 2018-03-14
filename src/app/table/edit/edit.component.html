@@ -1,0 +1,104 @@
+<div id="ibm-top" class="ibm-landing-page">
+  <div id="ibm-content-wrapper" [@myAnimation]="show">
+
+    <!-- LEADSPACE_BEGIN -->
+
+    <header role="banner" aria-labelledby="ibm-pagetitle-h1">
+
+      <div [@myAnimation]="show" id="ibm-leadspace-head" class="ibm-background-white-core">
+        <div id="ibm-leadspace-body-edit">
+          <div class="ibm-columns ibm-padding-top-3">
+            <div class="ibm-col-1-1-edit">
+              <h3 class="ibm-h3 ibm-left ibm-light">IBM <b>Agritech API</b> Customer Registration Control</h3>
+              <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEADSPACE_END -->
+
+    </header>
+    <div class="ibm-columns">
+      <p class="ibm-center">
+        
+        Edit
+        <span [ngClass]="{'rejected-edit' : model?.PMOValidation?.status === 'R', 'approved-edit': model?.PMOValidation?.status === 'A', 'pending-edit': model?.PMOValidation?.status === 'P' }"
+          class="record-title">{{pmo?.ibmId}}
+        </span> record which was created at:
+        <span [ngClass]="{'rejected-edit' : model?.PMOValidation?.status === 'R', 'approved-edit': model?.PMOValidation?.status === 'A', 'pending-edit': model?.PMOValidation?.status === 'P' }"
+          class="record-title">{{pmo?.PMOValidation?.created}}
+        </span>.
+      </p> <br />
+      
+        <form name="form" (ngSubmit)="f.form.valid && postPMO()" #f="ngForm" class="ibm-column-form ibm-center">
+        
+        <section [ngClass]="{ 'has-error': f.submitted && !ibmId.valid }">
+          <!--IBMId.: {{model?.ibmId}} <br />-->
+          <input type="hidden" name="ibmId" class="input-edit" value="{{pmo?.ibmId}}" size="40" [disabled]="true" [ngClass]="{'rejected-edit' : model?.PMOValidation?.status === 'R', 'approved-edit': model?.PMOValidation?.status === 'A', 'pending-edit': model?.PMOValidation?.status === 'P' }"
+            [(ngModel)]="model.ibmId" #ibmId="ngModel">
+        </section>
+
+        <section [ngClass]="{ 'has-error': f.submitted && !PMOValidation?.created.valid }">
+            <!--IBMId.: {{model?.ibmId}} <br />-->
+            <input type="hidden" name="created" class="input-edit" placeholder="{{pmo?.PMOValidation.created}}" [disabled]="true" [ngClass]="{'rejected-edit' : model?.PMOValidation?.status === 'R', 'approved-edit': model?.PMOValidation?.status === 'A', 'pending-edit': model?.PMOValidation?.status === 'P' }"
+              [(ngModel)]="model.PMOValidation.created" #PMOValidation.created="ngModel">
+          </section>
+
+        <section [ngClass]="{ 'has-error': f.submitted && !CMRNumber.valid }">
+          CMR No.: {{model?.PMOValidation?.CMRNumber}}
+          <input type="number" name="CMRNumber" class="input-edit" value="{{pmo?.PMOValidation?.CMRNumber}}" [ngClass]="{'rejected-edit' : model?.PMOValidation?.status === 'R', 'approved-edit': model?.PMOValidation?.status === 'A', 'pending-edit': model?.PMOValidation?.status === 'P' }"
+            [(ngModel)]="model.PMOValidation.CMRNumber" #CMRNumber="ngModel" required oninput="if(value.length>6)value=value.slice(0,6)"
+            pattern="^[0-9]{6}$"><br />
+          <span [@myAnimation]="show" *ngIf="f.submitted && !CMRNumber.valid" class="error">CMR Number must contain 6 numbers: '222222'</span>
+        </section>
+
+        <section [ngClass]="{ 'has-error': f.submitted && !workNumber.valid }">
+          <br /> Working No.: {{model?.PMOValidation?.workNumber}}
+          <input class="input-edit uppercase" name="workNumber" value="{{pmo?.PMOValidation?.workNumber}}" [ngClass]="{'rejected-edit' : model?.PMOValidation?.status === 'R', 'approved-edit': model?.PMOValidation?.status === 'A', 'pending-edit': model?.PMOValidation?.status === 'P' }"
+            [(ngModel)]="model.PMOValidation.workNumber" #workNumber="ngModel" required maxlength="6" pattern="^[B-b]{1}[Z-z]{1}[0-9]{4}$"><br />
+          <span [@myAnimation]="show" *ngIf="f.submitted && !workNumber.valid" class="error">Work Number must start with 'BZ' and more 4 numbers: 'BZ3455'</span>
+        </section>
+
+        <section [ngClass]="{ 'has-error': f.submitted && !contractNumber.valid }">
+          <br /> Contract No.: {{model?.PMOValidation?.contractNumber}}
+          <input class="input-edit uppercase" [ngClass]="{'rejected-edit' : model?.PMOValidation?.status === 'R', 'approved-edit': model?.PMOValidation?.status === 'A', 'pending-edit': model?.PMOValidation?.status === 'P' }"
+            name="contractNumber" value="{{pmo?.PMOValidation?.contractNumber}}" [(ngModel)]="model.PMOValidation.contractNumber" #contractNumber="ngModel"
+            required maxlength="7" pattern="^[B-b]{1}[Z-z]{1}[0-9]{5}$"> <br />
+            <span [@myAnimation]="show" *ngIf="f.submitted && !contractNumber.valid" class="error">Contract Number must start with 'BZ' and more 5 numbers: 'BZ34555'</span>
+        </section><br />
+
+        <div class="ibm-tabs-content position-center">
+          <div class="ibm-left left-float">
+            Rejection Criteria:
+            <select type="select" value="{{pmo?.PMOValidation.rejectCriteria}}" [disabled]="model?.PMOValidation?.status === 'A'" [ngClass]="{'rejected-edit' : model?.PMOValidation?.status === 'R', 'approved-edit': model?.PMOValidation?.status === 'A', 'pending-edit': model?.PMOValidation?.status === 'P'}"> 
+                        <option value="">Select one</option>
+                        <option value="Credit Card Expired">Credit Card Expired</option>
+                        <option value="Wrong Number">Wrong Number</option>
+                        <option value="No Limit">No Limit</option> 
+            </select>
+          </div>
+
+          <div class="ibm-right right-float" [ngClass]="{ 'has-error': f.submitted && !status.valid }">
+            Status:
+            <input type="text" class="status-input input-edit" [ngClass]="{'rejected-edit' : model?.PMOValidation?.status === 'R', 'approved-edit': model?.PMOValidation?.status === 'A', 'pending-edit': model?.PMOValidation?.status === 'P' }"
+              name="status" [disabled]="true" value="{{pmo?.PMOValidation?.status}}" [(ngModel)]="model.PMOValidation.status" #status="ngModel" required> 
+              <br /> Select Status: 
+            <input type="radio"  name="validation-status" value="R" [(ngModel)]="model.PMOValidation.status" required>R
+            <input type="radio"  name="validation-status" value="A" [(ngModel)]="model.PMOValidation.status" required>A
+            <br />
+            <span [@myAnimation]="show" *ngIf="f.submitted && !status.valid" class="error">Select one option</span>
+          </div>
+
+        </div>
+        <div class="buttons">
+          <button class="ibm-btn-pri ibm-btn-blue-50" routerLinkActive="active" [routerLink]="['/table/data']">Cancel</button>
+          <button [@myAnimation]="show" [disabled]="loading"  class="ibm-btn-pri ibm-btn-blue-50">Save</button>
+          <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+         />
+        </div><br />
+        <!--span *ngIf="error" class="error">{{error}}</span-->
+      </form>
+    </div>
+  </div>
+</div>

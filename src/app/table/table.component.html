@@ -1,0 +1,91 @@
+<div id="ibm-top" class="ibm-landing-page">
+  <div id="ibm-content-wrapper" [@myAnimation]="show">
+
+    <!-- LEADSPACE_BEGIN -->
+
+    <header role="banner" aria-labelledby="ibm-pagetitle-h1">
+
+      <div [@myAnimation]="show" id="ibm-leadspace-head" class="ibm-background-white-core" data-widget="parallaxscroll">
+        <div id="ibm-leadspace-body-table">
+          <div class="ibm-columns ibm-padding-top-3">
+            <div id="tableHead">
+              <h3 class="ibm-h3 ibm-left ibm-light">IBM <b>Agritech API</b> Customer Registration Control</h3>
+              <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEADSPACE_END -->
+
+    </header>
+    <div class="ibm-columns">
+      <div class="ibm-tabs-content">
+
+        <form class="ibm-column-form ibm">
+
+          <div class="ibm-left left-float tablePage"> Show
+            <select id="select">
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+           </select> entries
+          </div>
+
+          <div class="ibm-right right-float">
+            Search:
+            <app-search (onSearchChange)="search = $event"></app-search>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <div class="ibm-columns" id="table" [@myAnimation]="show">
+      <table [@myAnimation]="show" class="ibm-data-table" id="test1table">
+        <thead>
+          <tr>
+            <th>IBM Id</th>
+            <th>Working No.</th>
+            <th>CMR No.</th>
+            <th>Contract No.</th>
+            <th>Created</th>
+            <th>Modified</th>
+            <th>Status</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of pmo | searchPipe:'ibmId':search | paginate: { itemsPerPage: 10, currentPage: p }">
+            <td [ngClass]="{'rejected' : data.PMOValidation.status === 'R', 'approved': data.PMOValidation.status === 'A', 'pending': data.PMOValidation.status === 'P' }">
+              {{data.ibmId}}
+            </td>
+            <td [ngClass]="{'rejected' : data.PMOValidation.status === 'R', 'approved': data.PMOValidation.status === 'A', 'pending': data.PMOValidation.status === 'P' }">
+              {{data.PMOValidation.workNumber}}
+            </td>
+            <td [ngClass]="{'rejected' : data.PMOValidation.status === 'R', 'approved': data.PMOValidation.status === 'A', 'pending': data.PMOValidation.status === 'P' }">
+              {{data.PMOValidation.CMRNumber}}
+            </td>
+            <td [ngClass]="{'rejected' : data.PMOValidation.status === 'R', 'approved': data.PMOValidation.status === 'A', 'pending': data.PMOValidation.status === 'P' }">
+              {{data.PMOValidation.contractNumber}}
+            </td>
+            <td [ngClass]="{'rejected' : data.PMOValidation.status === 'R', 'approved': data.PMOValidation.status === 'A', 'pending': data.PMOValidation.status === 'P' }">
+              {{data.PMOValidation.created}}</td>
+            <td [ngClass]="{'rejected' : data.PMOValidation.status === 'R', 'approved': data.PMOValidation.status === 'A', 'pending': data.PMOValidation.status === 'P' }">
+              {{data.PMOValidation.lastModified}}
+              </td>
+            <td [ngClass]="{'rejected' : data.PMOValidation.status === 'R', 'approved': data.PMOValidation.status === 'A', 'pending': data.PMOValidation.status === 'P' }">
+              {{data.PMOValidation.status}}
+              </td>
+            <td [ngClass]="{'rejected' : data.PMOValidation.status === 'R', 'approved': data.PMOValidation.status === 'A', 'pending': data.PMOValidation.status === 'P' }">
+              <a routerLinkActive="active" [routerLink]="['/software/agritech/platform/pmo/table', data.ibmId]">
+                <img src="{{pencil}}" alt="edit" />
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+</div>

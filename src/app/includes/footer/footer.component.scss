@@ -1,0 +1,10 @@
+/**
+ *@name: footer
+ *@description: responsible to have footer's SASS code.
+ */
+
+@import '../../themes/sass/modules/functions';
+
+footer {
+    @include set-footer(static, 0, 0, 100%);
+}

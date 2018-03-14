@@ -1,0 +1,53 @@
+/**
+ *@name: login
+ *@description: responsible to have login's SASS code.
+ */
+
+
+// Applying some corrections to V18 Library 
+
+html, body {
+    background-color: #ffffff !important;
+}
+
+a {
+    color: black !important;
+}
+
+.bold-correction {
+    margin-left: -80px;
+}
+
+.ibm-mh-marketplace-link {
+    padding: 0 20px 0 0 !important;
+}
+
+.ibm-padding-top-3{
+    padding-top: 20px !important;
+}
+
+#ibm-leadspace-head {
+     border-bottom: none !important;
+}
+
+#ibm-leadspace-body {
+    padding: 30px 0 0px !important;
+    min-height: 150px !important;
+}
+
+.ibm-column-form p>span {
+    margin-left: 0 !important;
+}
+
+button.ibm-btn-pri.ibm-btn-blue-50 {
+    margin-top: 20px;
+}
+
+p {
+    padding: 0px !important;
+}
+
+p.ibm-center.login {
+    margin-left: -90px;
+}
+

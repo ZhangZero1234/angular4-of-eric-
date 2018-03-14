@@ -1,0 +1,79 @@
+/**
+ *@name: edit
+ *@description: responsible to have login's SASS code.
+ */
+
+
+// Applying some corrections to V18 Library 
+
+ .ibm-btn-blue-50.ibm-btn-pri{
+   background: black;
+   border-color: black;
+ }
+
+ .ibm-btn-pri.ibm-btn-blue-50:hover, .ibm-btn-pri.ibm-btn-blue-50:focus{
+   background: grey;
+   border-color: grey;
+ }
+
+
+ .rejected-edit {
+    color: red;
+    transition: 300ms ease-in-out;
+    margin-bottom: 20px;
+  }
+  
+  .approved-edit {
+    color: green;
+    transition: 300ms ease-in-out;
+    margin-bottom: 20px;
+  }
+  
+  .pending-edit {
+    color: orange;
+    transition: 300ms ease-in-out;
+    margin-bottom: 20px;
+  }
+
+  .record-title {
+    font-weight:bold;
+  }
+
+  input.ibm-btn-pri.ibm-btn-blue-50 {
+    height: 46px;
+  }
+
+  .input-edit {
+    height: 24px;
+    width: 250px;
+    _margin-bottom: 20px !important;
+    padding-bottom: 3px !important;
+    padding-top: 3px !important;
+  }
+
+  .status-input {
+      width:130px;
+      height: 34px !important;
+  }
+
+  .buttons {
+      clear: both;
+  }
+
+  .position-center {
+    max-width: 540px;
+    min-width: 500px;
+    position: relative;
+    left: 32%;
+}
+
+  .position-center .left-float, .position-center .right-float {
+    margin: 0px;
+  }
+.uppercase {
+    text-transform: uppercase;
+}
+
+input:-webkit-autofill {
+    background-color: #ffffff !important; 
+}

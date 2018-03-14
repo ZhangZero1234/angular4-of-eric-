@@ -1,0 +1,226 @@
+/**
+ *@name: table
+ *@description: responsible to have login's SASS code.
+ */
+
+
+// Applying some corrections to V18 Library 
+
+@import '../themes/sass/modules/functions';
+@import 'edit/edit.component';
+
+
+
+.left-float {
+  margin-left: 12px;
+  @include set-float-left();
+}
+
+.left-float.tablePage {
+  display: none;
+}
+
+.right-float {
+  margin-right: 12px;
+  @include set-float-right();
+}
+
+#table {
+  padding-top: 5px;
+  overflow-x: auto;
+  padding-bottom: 0px;
+}
+
+.ibm-data-table th, .ibm-data-table td {
+  text-align: center;
+}
+
+td.ng-tns-c3-2 {
+  font-size: 16px;
+}
+
+.ibm-data-table {
+  transition: 350ms ease-in-out;
+}
+
+.ibm-data-table:not(.ibm-no-highlight) tbody tr:hover {
+  background-color: #f6f6f6 !important;
+  transition: 350ms ease-in-out;
+}
+
+.rejected {
+  color: #E71D32;
+}
+
+.approved {
+  color: #5AA700;
+}
+
+.pending {
+  color: #FFA573;
+}
+
+ul>li::before, ol>li::before {
+  display: none !important;
+}
+
+ul>li, ol>li {
+  padding-left: 0px;
+}
+
+input[type=radio]:checked ~ .check {
+  border: 5px solid black;
+}
+
+input[type=radio]:checked ~ .check::before{
+  background: black;
+}
+
+input[type=radio]:checked ~ label{
+  color: black;
+}
+
+input {
+  font-size: 16px;
+  padding-bottom: 20px !important;
+  padding-top: 20px !important;
+  text-align: center;
+}
+
+ #table{
+  margin: 0 auto;
+}
+
+ #table *{
+  font-size: 14px !important;
+}
+
+ #table table:first-child {
+    border-bottom: 1px solid #e0e0e0;
+    width: 99%;
+    margin-bottom: 10px;
+}
+
+#table ul.ngx-pagination {
+  padding: 0 0 2px;
+}
+
+#table .ibm-data-table th, #table .ibm-data-table td {
+    padding: 8px 10px 8px 0;
+}
+
+ #table{
+  margin: 0 auto;
+  width: 90%;
+}
+
+#search, #table input{
+  padding-bottom: 0px !important;
+  padding-top: 0px !important;
+}
+#search{
+    height: 30px;
+    text-align: left;
+    width: 220px;
+}
+#table .ibm-data-table td:first-child {
+    text-align: left;
+}
+#table .ibm-data-table td:last-child {
+    position: relative;
+}
+#table .ibm-data-table td:last-child a{
+    display: block;
+    position: absolute;
+    top: 0px;
+}
+
+#table .ibm-data-table td input {
+    width: auto;
+}
+#table .ibm-data-table td:nth-child(7) {
+    font-weight: bold;
+}
+#table input{
+    background-color: transparent;
+    border: 0;
+}
+select.ng-tns-c3-2 {
+  font-size: 16px;
+}
+
+select {
+  height: 40px !important;
+  background-color: #ffffff;
+ }
+
+ select:not([multiple]){
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  background-position:right 50%;
+  background-repeat:no-repeat;
+  background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDZFNDEwNjlGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDZFNDEwNkFGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0NkU0MTA2N0Y3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0NkU0MTA2OEY3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuGsgwQAAAA5SURBVHjaYvz//z8DOYCJgUxAf42MQIzTk0D/M+KzkRGPoQSdykiKJrBGpOhgJFYTWNEIiEeAAAMAzNENEOH+do8AAAAASUVORK5CYII=);
+  padding: .5em;
+  padding-right:1.5em;
+}
+ 
+ option {
+   color: #323232;
+ }
+
+img.ng-tns-c3-2{
+  height: 30px;
+  margin-bottom: -10px;
+  display: block;
+}
+
+// Ngx Code for pagination
+
+.ngx-pagination a, .ngx-pagination button {
+  color: #ffffff !important;
+  display: block;
+  padding: 0.1875rem 0.625rem;
+  border-radius: 0;
+  background: grey !important;
+}
+
+.ngx-pagination a:hover, .ngx-pagination button:hover{
+  background: black !important;
+}
+
+.ngx-pagination li {
+  display: inline-block;
+  transition: 500ms linear;
+}
+
+.ngx-pagination .current {
+  background: black !important;
+}
+
+.ngx-pagination .disabled {
+  padding: 0.1875rem 0.625rem;
+  color: #ffffff !important;
+  cursor: pointer;
+  background-color: #2199e8;
+  background-color: black !important;
+  opacity: 0.5;
+}
+
+.ngx-pagination .disabled:hover {
+  background-color: black !important;
+  cursor: pointer;
+  opacity: 0.2;
+}
+
+.ngx-pagination a{
+  transition: 300ms ease-in-out;
+}
+
+.ngx-pagination a:hover, .ngx-pagination button:hover {
+  background: #2199e8;
+}
+
+.ibm-btn-blue-50.ibm-btn-pri{
+  background: black;
+  border-color: black;
+}

@@ -1,0 +1,46 @@
+<div [@myAnimation]="show" id="ibm-top" class="ibm-landing-page">
+  <div id="ibm-content-wrapper">
+
+    <!-- LEADSPACE_BEGIN -->
+
+    <header role="banner" aria-labelledby="ibm-pagetitle-h1" >
+
+      <div id="ibm-leadspace-head" class="ibm-background-white-core" data-widget="parallaxscroll">
+        <div id="ibm-leadspace-body">
+          <div class="ibm-columns ibm-padding-top-3">
+            <div class="ibm-col-1-1">
+              <h3 [@myAnimation]="show" class="ibm-h3 ibm-left ibm-light">IBM <b>Agritech API</b> Customer Registration Control</h3>
+              <hr>
+            </div>
+          </div>
+          <div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- LEADSPACE_END -->
+
+    </header>
+
+    <div class="ibm-columns" id="login" [@myAnimation]="show">
+      <p class="ibm-center"><b class="bold-correction">Please enter IBM intranet email id</b></p>
+    </div>
+    
+    <div class="ibm-columns">
+      <form name="form" (ngSubmit)="f.form.valid && welcome()" #f="ngForm" class="ibm-column-form ibm-center">
+        <p>
+          <span [ngClass]="{ 'has-error': f.submitted && !ibmId.valid }">
+              <input [@myAnimation]="show" type="email" name="ibmId" [(ngModel)]="model.ibmId" #ibmId="ngModel" placeholder="Enter your IBMId" size="40" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            <a class="ibm-information-link" href="#" onclick="alert('I need to know who you are :D');return false;" title="Information link">Information</a>
+        </span>
+         <button [@myAnimation]="show" [disabled]="loading"  class="ibm-btn-pri ibm-btn-blue-50">Continue</button>
+         <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+        />
+         <span *ngIf="error">{{error}}</span>
+         <span [@myAnimation]="show" *ngIf="f.submitted && !ibmId.valid" class="error">IBMId is required</span>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

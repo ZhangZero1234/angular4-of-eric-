@@ -1,0 +1,35 @@
+/**
+ *@name: app.component
+ *@description: Sass file for main app component settings.
+ */
+
+/** @description: main app component */
+
+@import 'table/table.component';
+@import 'login/login.component';
+@import 'search/search.component';
+@import 'welcome/welcome.component';
+@import 'includes/footer/footer.component';
+@import 'includes/header/header.component';
+
+// General Definitions
+
+div#ibm-content-wrapper {
+    _height: 3500px;
+    min-height: 550px;
+}
+
+img.ng-tns-c3-2{
+    height: 30px;
+    margin-bottom: -10px;
+  }
+  input.ng-tns-c3-2 {
+    font-size: 16px;
+  }
+  select.ng-tns-c3-2 {
+    font-size: 12px;
+  }
+  td.ng-tns-c3-2 {
+    font-size: 12px;
+  }
+  
